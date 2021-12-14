@@ -1,0 +1,33 @@
+/* Panel */
+.panel {
+  padding: 40px;
+}
+.panel hr {
+  margin-bottom: 20px;
+}
+.panel-title {
+  margin-bottom: 15px;
+}
+
+/* Alert */
+.alert {
+  font-size: 87.5%;
+  font-weight: 600;
+  text-align: center;
+  background: var(--code-background-color);
+  border-radius: var(--border-radius);
+  padding: 40px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.alert span {
+  font-size: 2em;
+}
+
+/* Utils */
+.m-0 {
+  margin: 0 !important;
+}

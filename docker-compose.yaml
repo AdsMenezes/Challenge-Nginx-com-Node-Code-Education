@@ -1,0 +1,46 @@
+version: "3"
+
+services:
+  node:
+    build: 
+      context: ./node
+    image: adsmenezes/node
+    container_name: app-node
+    entrypoint: dockerize -wait tcp://mysql:3306 -timeout 20s npm start
+    tty: true
+    # volumes:
+    #   - ./node:/usr/src/app
+    networks:
+      - netproxy
+    depends_on:
+      - mysql
+  nginx:
+    build: 
+      context: ./nginx
+    image: adsmenezes/nginx
+    container_name: app-nginx
+    ports:
+      - "8080:80"
+    networks:
+      - netproxy
+    depends_on:
+      - node
+  mysql:
+    image: mysql:5.7
+    command: --default-authentication-plugin=mysql_native_password
+    container_name: app-mysql
+    restart: always
+    tty: true
+    volumes:
+      - ./cache:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=base
+      - MYSQL_ROOT_PASSWORD=pass
+    ports:
+      - "3306:3306"
+    networks:
+      - netproxy
+
+networks:
+  netproxy:
+    driver: bridge

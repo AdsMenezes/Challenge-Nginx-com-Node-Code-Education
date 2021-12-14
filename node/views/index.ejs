@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full Cycle Rocks!</title>
+  <link rel="stylesheet" href="css/pico.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="container">
+    <hgroup>
+      <h1>Full Cycle Rocks!</h1>
+      <h2>Seja melhor que ontem 👋</h2>
+    </hgroup>
+    
+    <article class="panel">
+      <h3 class="panel-title">Formulário</h3>
+      <hr>
+      <form class="m-0" action="#" method="post">
+        <label for="name">
+          Nome
+          <input type="text" id="name" name="name" placeholder="Qual seu nome?" required>
+        </label>
+        <button class="m-0">Cadastrar</button>
+      </form>
+    </article>
+
+    <article class="panel">
+      <h3 class="panel-title">Lista</h3>
+      <hr>
+      <% if(peoples.length) { %>
+      <ul class="m-0">
+        <% peoples.forEach(people => {%>
+          <li><%= people.name %></li>
+        <% }) %>
+      </ul>
+      <% } else { %>
+        <span class="alert">
+          <span>🤷‍♂️</span>
+          Nenhum registro foi encontrado.
+        </span>
+      <% } %>
+    </article>
+    
+    <small>Made with love by <a href="https://silk-biplane-d37.notion.site/Anderson-Menezes-5ec33939b60943c0ad2173940c61e0e6" target="_blank">Anderson Menezes</a> • <a href="https://github.com/AdsMenezes/Challenge-Nginx-com-Node-Code-Education" target="_blank">GitHub</a></small>
+  </main>
+</body>
+</html>
